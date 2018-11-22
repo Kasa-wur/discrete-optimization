@@ -1,6 +1,3 @@
-Git IS a distributed version control system
-Git is a free tool distributed under the GPL
-'git diff' is used after 'git add' but before 'git commit'
-No again try to figure out when git diff works
-Git tracks changes
-Git tracks changes of files
+This is a repo Coursera course 'Discrete Optimization'
+This is not an easy course, but it's valuable for people who want to know more about operation research, especially the implementation of optimization algorithms.
+I hope I could go through this course detaily.
