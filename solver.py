@@ -27,9 +27,8 @@ def ny_matrix(capacity, items):
             if item.weight > w:
                 matrix[w,item.index] = matrix[w, item.index-1]
             else:
-                not_taken = matrix[w,item.index - 1]
-                taken = matrix[w - item.weight,item.index - 1] + item.value
-                matrix[w,item.index] = max(taken, not_taken)
+                matrix[w, item.index] = max(matrix[w,item.index - 1],\
+                                            matrix[w - item.weight,item.index - 1] + item.value )
     return matrix
 
 def trace_back(matrix,items):
@@ -38,7 +37,7 @@ def trace_back(matrix,items):
     for item in items[::-1]:
         if row == 0 or col== 0:
             taken[item.index] = 1 if matrix[row,col] == item.value else 0
-        elif matrix[row,col] == matrix[row,col-1] and col >= 1 and row >=0:
+        elif col >= 1 and row >=0 and matrix[row,col] == matrix[row,col-1]:
             taken[item.index] = 0
         else:
             taken[item.index] = 1
@@ -56,9 +55,6 @@ def trace_back(matrix,items):
 #     for i in sorted(list(take.keys()), reverse=False):
 #         output_data += str(take[i]) + ' '
 #     return output_data
-
-
-
 
 
 
