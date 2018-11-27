@@ -2,9 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from collections import namedtuple
+import time
 import numpy as np
+from numba import jit
+
 Item = namedtuple("Item", ['index', 'value', 'weight'])
 
+@jit
 def data_parser(input_data):
     lines = input_data.split('\n')
 
@@ -60,7 +64,8 @@ def trace_back(matrix,items):
 
 
 if __name__ == '__main__':
-    with open('./data/ks_50_0','r') as input_data_file:
+    t1 = time.clock()
+    with open('data/ks_400_0','r') as input_data_file:
         input_data = input_data_file.read()
         capacity, items = data_parser(input_data)
 
@@ -73,6 +78,8 @@ if __name__ == '__main__':
     print(np_mat)
     print('total value:', np_mat[-1,-1])
     take = trace_back(np_mat, items)
+    t2 = time.clock()
+    print('run time:%f s'%(t2-t1))
 
     #
     # import sys
