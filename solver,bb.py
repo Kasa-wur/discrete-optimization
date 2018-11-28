@@ -98,7 +98,7 @@ def solve_it(sorted_items):
     return output_data
 
 if __name__ == '__main__':
-    with open('data/ks_40_0','r') as input_data_file:
+    with open('data/ks_60_0','r') as input_data_file:
         input_data = input_data_file.read()
         capacity, item_count, items = data_parser(input_data)
 
