@@ -36,7 +36,7 @@ def trace_back(matrix,items):
     row = len(matrix) - 1
     col = len(matrix[0]) - 1
     taken = {}
-    for item in items[::-1]:
+    for item in reversed(items):
         if col >= 1 and row >=0 and matrix[row][col] == matrix[row][col-1]:
             taken[item['index']] = 0
         elif row == 0 or col== 0:
